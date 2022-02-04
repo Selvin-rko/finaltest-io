@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+ 
+ 
+  <script type="text/javascript">
+    var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
+ // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+clevertap.account.push({"id": "44Z-RR4-R46Z"});
+clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
+clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agrees to share their IP data
+(function () {
+        var wzrk = document.createElement('script');
+        wzrk.type = 'text/javascript';
+        wzrk.async = true;
+        wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js?v=0';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wzrk, s);
+})();
+</script>
+
+  <meta charset="UTF-8">
+  <title>CodePen - TestCT</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html>
+  <body>
+
+<h2>Welcome to my Website</h2>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<div id="id01" class="modal1">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="/Users/selvin/Downloads/testct/dist/ProductPage.html" method="post">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="Enter your Full Name" id ="signup_name" name="name" required>
+
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" id ="signup_email" name="email" required>
+
+      <label for="phone"><b>Enter your phone number</b></label>
+    <input type="tel" id="phone" placeholder="Enter Phone Number" name="phone" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id ="password" required>
+
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat"  id="confirm_password" required>
+      
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+      
+      
+      <button id ="Signup_btn" onclick="SignupFn()" style="width:auto;" >Sign Up</button>
+      
+
+      <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Login</button>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        
+
+      </div>
+    </div>
+  </form>
+</div>
+ <div id="id02" class="modal2">
+  
+  <form class="modal-content animate" action="/Users/selvin/Downloads/testct/dist/ProductPage.html" method="post">
+    
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="email" placeholder="Enter Username" name="uname"   required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button id ="login_btn" onclick="LoginFn()">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+      </div>
+      </form>
+    </div>
+  
+    <script>
+     
+
+
+     
+
+   
+  
+   const test = document.getElementById("signup_email");
+   const btnInsert = document.getElementById("Signup_btn");
+
+   btnInsert.onclick = function()
+
+   {
+
+   const signupemail_LT = test.value
+
+   localStorage.setItem("Signup_EMAIL", signupemail_LT);
+
+
+   
+
+   clevertap.onUserLogin.push({
+        "Site": {
+   "Name": document.getElementById('signup_name').value,   
+            
+   "Email": document.getElementById('signup_email').value,        
+   "Phone": "+91"+document.getElementById('phone').value 
+
+
+ 
+   
+   
+      
+ } 
+
+
+       }); 
+
+
+       clevertap.notifications.push(
+       {
+    "titleText": "Selvin WebPush",
+    "bodyText": "popupBodyText",
+    "okButtonText": "okButtonText",
+    "rejectButtonText": "rejectButtonText",
+    
+  }
+    );
+   
+   
+
+   }
+  
+    
+  
+
+// Sign Up Function
+
+ /* function SignupFn()
+     {
+      
+
+       clevertap.onUserLogin.push({
+        "Site": {
+   "Name": document.getElementById('signup_name').value,   
+            
+   "Email": document.getElementById('signup_email').value,        
+   "Phone": "+91"+document.getElementById('phone').value 
+   
+   
+      
+ } */
+
+
+      
+
+
+
+   /////  Login Function
+
+     function LoginFn()
+     {
+      clevertap.onUserLogin.push({
+        "Site": {
+    
+            
+       "Email": document.getElementById('uname').value,        
+     
+      
+       }
+
+       }); 
+
+       clevertap.notifications.push(
+       {
+    "titleText": "Selvin WebPush",
+    "bodyText": "popupBodyText",
+    "okButtonText": "okButtonText",
+    "rejectButtonText": "rejectButtonText",
+    
+  }
+    );
+
+     }
+
+
+  
+  </script>
+
+
+    </body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>

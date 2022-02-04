@@ -1,0 +1,178 @@
+<html>
+
+  <head>
+
+ <script type="text/javascript">
+      var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
+   // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+  clevertap.account.push({"id": "44Z-RR4-R46Z"});
+  clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
+  clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agrees to share their IP data
+  (function () {
+          var wzrk = document.createElement('script');
+          wzrk.type = 'text/javascript';
+          wzrk.async = true;
+          wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js?v=0';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(wzrk, s);
+  })();
+  </script>  
+  
+
+
+    <meta charset="UTF-8">
+    <title>CodePen - TestCT</title>
+    <link rel="stylesheet" href="./style.css">
+  
+  </head>
+  <body style="background-color: lightblue;">
+    <div>
+
+<h2>Welcome to the Product Page</h2>
+
+<script>
+
+ 
+ 
+ var logged_email = localStorage.getItem("Signup_EMAIL");
+let ls_output = logged_email.toString();
+console.log(ls_output)
+
+clevertap.onUserLogin.push({
+  "Site": {
+    "Email": ls_output,
+  }
+
+});
+
+function category_selected()
+{
+  var price = document.getElementById("category");
+  if(price.value == "Shoes")
+  {
+     document.getElementById("shoes").style.visibility="visible";
+     document.getElementById("bag").style.visibility="hidden";
+     document.getElementById("hoodie").style.visibility = "hidden";
+    
+    
+  }
+  else if(price.value == "Hoodie")
+  {
+    document.getElementById("hoodie").style.visibility = "visible";
+    document.getElementById("shoes").style.visibility="hidden";
+    document.getElementById("bag").style.visibility = "hidden";
+  }
+  else
+  {
+    document.getElementById("hoodie").style.visibility = "hidden";
+    document.getElementById("shoes").style.visibility="hidden";
+    document.getElementById("bag").style.visibility = "visible";
+
+  }
+  
+}
+
+</script>
+
+<form class="Product">
+  <div class="container">
+    
+
+    <label for="Pname"><b>Product name </b></label>
+    <select name="Product" id="Pname">
+      <option value="Adidas">Adidas</option>
+      <option value="Nike">Nike</option>
+      <option value="Puma">Puma</option>
+      
+      </select></br></br></br>
+
+    <label for="Category"><b>Category</b></label>
+    
+    <select onchange="category_selected()" name="Category" id="category">
+      <option value="Bag">Bag</option>
+      <option value="Shoes">Shoes</option>
+      <option value="Hoodie">Hoodie</option>
+      
+      </select></br></br></br>
+    <label for="Price"><b>Price: </b></label>
+    <label id="bag"><b>₹ 400</b></label>  
+    <label id="shoes" style="visibility: hidden;"><b>₹ 500</b></label>  
+    <label id="hoodie" style="visibility: hidden;"><b>₹ 700</b></label>  
+
+    
+
+    <button onclick="AddToCartFn()">Add To Cart</button>
+
+    <script>
+
+  //    var localSTR =JSON.parse(localStorage.getItem("SignupDetails"))
+
+      for (let i = 0; i < localStorage.length; i++) {
+
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        
+            
+   
+             
+            if(i == 0)
+            {
+
+              console.log(value);
+       
+            const email = value[0];
+           
+
+           console.log(email)
+              
+          
+            }
+
+            }
+
+              
+
+             
+
+             
+
+             
+
+            
+                              
+   
+        
+     
+
+      
+
+     
+
+     //  Add to cart function 
+ function AddToCartFn()
+     {
+      
+      
+
+      clevertap.event.push("Added To Cart", {
+        "Product name":  document.getElementById('Pname').value, 
+  "Category": document.getElementById('category').value,
+   
+   
+ 
+      
+ } );
+ alert("Product Added to Cart")
+}
+
+    </script>
+      
+
+    </div>
+  </div>
+
+</div>
+</form>
+
+  </body>
+  </html>
