@@ -35,7 +35,7 @@ clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agree
 
 <div id="id01" class="modal1">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" action="/Users/selvin/Downloads/testct/dist/ProductPage.html" method="post">
+  <div class="modal-content">
     <div class="container">
       <h1>Sign Up</h1>
       <p>Please fill in this form to create an account.</p>
@@ -64,7 +64,7 @@ clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agree
       
       
       <button id ="Signup_btn" onclick="SignupFn()" style="width:auto;" >Sign Up</button>
-      
+  
 
       <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Login</button>
 
@@ -74,35 +74,37 @@ clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agree
 
       </div>
     </div>
-  </form>
+  </div>
 </div>
  <div id="id02" class="modal2">
   
-  <form class="modal-content animate" action="/Users/selvin/Downloads/testct/dist/ProductPage.html" method="post">
+  <div class="modal-content animate" >
     
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
       
 
     <div class="container">
       <label for="uname"><b>Username</b></label>
-      <input type="email" placeholder="Enter Username" name="uname"   required>
+      <input type="email" placeholder="Enter Username" id="uname"   required>
 
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
         
+      
       <button id ="login_btn" onclick="LoginFn()">Login</button>
+   
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
       </div>
-      </form>
+    </div>
     </div>
   
     <script>
      
 
 
-     
+    
 
    
   
@@ -129,7 +131,7 @@ clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agree
 
 
  
-   
+  
    
       
  } 
@@ -148,8 +150,8 @@ clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agree
   }
     );
    
-   
-
+    window.location = "/Users/selvin/Downloads/testct/dist/ProductPage.html"
+  
    }
   
     
@@ -157,7 +159,7 @@ clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agree
 
 // Sign Up Function
 
- /* function SignupFn()
+/*  function SignupFn()
      {
       
 
@@ -170,7 +172,12 @@ clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agree
    
    
       
- } */
+ } );
+
+}
+
+*/
+  
 
 
       
@@ -181,18 +188,20 @@ clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agree
 
      function LoginFn()
      {
+     
       clevertap.onUserLogin.push({
         "Site": {
     
             
-       "Email": document.getElementById('uname').value,        
+       "Email": document.getElementById('uname').value,   
      
       
        }
 
        }); 
 
-       clevertap.notifications.push(
+
+   clevertap.notifications.push(
        {
     "titleText": "Selvin WebPush",
     "bodyText": "popupBodyText",
@@ -200,7 +209,10 @@ clevertap.privacy.push({useIP: true}); //set the flag to true, if the user agree
     "rejectButtonText": "rejectButtonText",
     
   }
-    );
+    ); 
+
+    window.location = "/Users/selvin/Downloads/testct/dist/ProductPage.html"
+
 
      }
 
