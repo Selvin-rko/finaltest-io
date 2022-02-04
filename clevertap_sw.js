@@ -3,7 +3,7 @@ const cacheName = 'v1';
 
 const cacheAssets = [
   'index.html',
-  'about.html',
+  'ProductPage.html',
   '/css/style.css',
   '/js/main.js'
 ];
