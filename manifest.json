@@ -1,7 +1,7 @@
 {
   "name": "vishalkshirsagarSDKInt",
   "short_name": "vishalk",
-  "start_url": "/index.html",
+  "start_url": "/ProductPage.html",
   "background_color": "#2196F3",
   "theme_color": "#736AFF",
   "gcm_sender_id": "301866320725"
